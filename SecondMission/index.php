@@ -20,10 +20,11 @@ if(!$userfunc->IsLogged())
   return;
 }
 //Insert random number into database clicked.
-if(isset($_POST['submit_num']))
+if(isset($_POST['submit_text']))
 {
-  $userfunc->InsertRandomNum($_SESSION['uid']);
-  echo 'New random number inserted into the DB.';
+  $thetext = $_POST['text_input'];
+  $userfunc->InsertText($_SESSION['uid'], $thetext);
+  echo 'The text : '. htmlspecialchars($thetext) . ' has been inserted into the DB.';
 }
 
 //Logout clicked.
@@ -39,6 +40,7 @@ if(isset($_POST['submit_logout']))
 }
 ?>
 <form action="#" method="post">
-  <input type="submit" name="submit_num" value="Insert random number into database">
+  <input type="text" name="text_input"><br>
+  <input type="submit" name="submit_text" value="Insert random number into database">
   <input type="submit" name="submit_logout" value="Logout">
 </form>

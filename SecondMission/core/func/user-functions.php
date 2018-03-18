@@ -54,12 +54,11 @@ class UserFunc
     return false;
   }
 
-  public function InsertRandomNum($userid)
+  public function InsertText($userid, $input)
   {
-    $random = rand(1, 9999);
-    $SQLCheck = $this->db->prepare('INSERT INTO `data`(userid, randomnum) VALUES(?, ?)');
+    $SQLCheck = $this->db->prepare('INSERT INTO `data`(userid, thetext) VALUES(?, ?)');
     $SQLCheck->bindParam(1 , $userid);
-    $SQLCheck->bindParam(2 , $random);
+    $SQLCheck->bindParam(2 , $input);
     $SQLCheck->execute();
   }
 }
