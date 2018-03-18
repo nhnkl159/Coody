@@ -85,7 +85,7 @@ class ES_2
         //Lets check first if the file exist.
         if (!file_exists($file))
         {
-            return; //Nope our file doesnt exist.
+            return false; //Nope our file doesnt exist.
             
         }
         //Lets get our file content.
@@ -111,7 +111,7 @@ class ES_2
         //Lets check if our $arg is a array, if false return;
         if (!is_array($arg))
         {
-            return; //Nope our arg isnt array.
+            return false; //Nope our arg isnt array.
             
         }
 
